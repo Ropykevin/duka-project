@@ -31,7 +31,7 @@ const Sales: React.FC = () => {
                         <th>ID</th>
                         <th>Product id</th>
                         <th>Quantity</th>
-                        <th>Amount</th>
+                        <th>Time</th>
                     </tr>
                 </thead>
                 <tbody>

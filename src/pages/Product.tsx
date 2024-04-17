@@ -4,8 +4,8 @@ import axios from 'axios';
 interface Product {
     id: number;
     name: string;
+    cost: number;
     price: number;
-    stock_quantity: number;
 }
 
 const Products: React.FC = () => {
@@ -30,18 +30,19 @@ const Products: React.FC = () => {
                     <tr>
                         <th>id</th>
                         <th>name</th>
+                        <th>cost</th>
                         <th>price</th>
-                        <th>stock quantity</th>
                     </tr>
                 </thead>
                 <tbody>
                     {products.map(product => (
                         <tr key={product.id}>
+                            <td>{product.id}</td>
                             <td>{product.name}</td>
+                            <td>{product.cost}</td>
                             <td>{product.price}</td>
-                            <td>{product.stock_quantity}</td>
                         </tr>
-                ))}
+                    ))}
                 </tbody>
             </table>
         </div>
