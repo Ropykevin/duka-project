@@ -1,15 +1,12 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate,Outlet, useNavigate } from "react-router-dom";
 
-export default function Protected(){
-    const navigate =useNavigate()
+export default function Protected() {
 
-    useEffect(()=>{
-        const login_status=localStorage.getItem("isLoggedIn")
-        console.log("isLoggedIn ",login_status)
-        if (!login_status || login_status!=="true"){
-            navigate('/login')
-        }
-    },[navigate])
-    return null
+    const login_status = localStorage.getItem("isLoggedIn")
+    console.log("isLoggedIn ", login_status)
+    if (!login_status || login_status !== "true") {
+       < Navigate to='/login'/>
+    }
+    return login_status ?<Outlet/>:< Navigate to='/login'/>
+
 }

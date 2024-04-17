@@ -16,6 +16,8 @@ function Layout() {
                             <Link to="/dashboard" className="nav-link">Dashboard</Link>
                             <Link to="/register" className="nav-link">Register</Link>
                             <Link to="/login" className="nav-link">Login</Link>
+                            <Link to="/logout" className="nav-link">Logout</Link>
+
                         </Nav>
                     </Container>
                 </Navbar>

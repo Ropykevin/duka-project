@@ -5,6 +5,7 @@ interface Product {
     id: number;
     name: string;
     price: number;
+    stock_quantity:number;
 }
 
 const Products: React.FC = () => {
@@ -12,7 +13,7 @@ const Products: React.FC = () => {
 
     useEffect(() => {
         // Fetch products data from an API
-        axios.get<Product[]>('http://example.com/api/products')
+        axios.get<Product[]>('http://127.0.0.1:5000/products')
             .then(response => {
                 setProducts(response.data);
             })
@@ -24,14 +25,15 @@ const Products: React.FC = () => {
     return (
         <div>
             <h2>Products</h2>
-            <ul>
+            <table>
                 {products.map(product => (
-                    <li key={product.id}>
-                        <span>{product.name}</span>
-                        <span>{product.price}</span>
-                    </li>
+                    <tr key={product.id}>
+                        <td>{product.name}</td>
+                        <td>{product.price}</td>
+                        <td>{product.stock_quantity}</td>
+                    </tr>
                 ))}
-            </ul>
+            </table>
         </div>
     );
 }

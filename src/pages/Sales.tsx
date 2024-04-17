@@ -3,9 +3,9 @@ import axios from 'axios';
 
 interface Sale {
     id: number;
-    product: string;
+    pid: number;
     quantity: number;
-    amount: number;
+    created_at: string;
 }
 
 const Sales: React.FC = () => {
@@ -13,7 +13,7 @@ const Sales: React.FC = () => {
 
     useEffect(() => {
         // Fetch sales data from an API
-        axios.get<Sale[]>('http://example.com/api/sales')
+        axios.get<Sale[]>('http://127.0.0.1:5000/sales')
             .then(response => {
                 setSales(response.data);
             })
@@ -29,7 +29,7 @@ const Sales: React.FC = () => {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Product</th>
+                        <th>Product id</th>
                         <th>Quantity</th>
                         <th>Amount</th>
                     </tr>
@@ -38,9 +38,9 @@ const Sales: React.FC = () => {
                     {sales.map(sale => (
                         <tr key={sale.id}>
                             <td>{sale.id}</td>
-                            <td>{sale.product}</td>
+                            <td>{sale.pid}</td>
                             <td>{sale.quantity}</td>
-                            <td>{sale.amount}</td>
+                            <td>{sale.created_at}</td>
                         </tr>
                     ))}
                 </tbody>

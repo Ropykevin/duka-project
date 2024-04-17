@@ -8,6 +8,7 @@ import Sales from './pages/Sales';
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 
 function App() {
   return (
@@ -15,11 +16,17 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-            <Route path="/product" element={<Products />} />
+          <Route element={<Protected />}>
+            <Route path="/products" element={<Products />} />
             <Route path="/sales" element={<Sales />} />
             <Route path="/dashboard" element={<Dashboard />} />
+
+          </Route>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+
+
         </Route>
       </Routes>
     </Router>
