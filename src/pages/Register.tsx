@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const Register: React.FC = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    
 
-    const handleRegister = () => {
-        // Perform registration logic here, e.g., send data to server
-        console.log('Registering with:', { username, email, password });
-        // Reset form fields after registration
-        setUsername('');
-        setEmail('');
-        setPassword('');
+    const handleRegister = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:5000/register', {
+                username,
+                email,
+                password
+            });
+            console.log('Registration successful:', response.data);
+            <Navigate to="/login"/>
+            setUsername('');
+            setEmail('');
+            setPassword('');
+        } catch (error) {
+            console.error('Registration failed:', error);
+        }
     };
 
     return (

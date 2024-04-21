@@ -20,6 +20,7 @@ const Login: React.FC = () => {
             const responseData: { access_token: string } = response.data;
             localStorage.setItem('token', responseData.access_token);
             localStorage.setItem('isLoggedIn', 'true'); 
+            
             navigate('/dashboard'); 
         } catch (error) {
             console.error("Login error:", error);
