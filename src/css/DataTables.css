@@ -1,0 +1,51 @@
+/* Styling DataTable */
+.dataTables_wrapper {
+    margin-top: 20px;
+}
+
+.dataTables_length select,
+.dataTables_filter input {
+    margin-bottom: 10px;
+}
+
+.dataTables_length select,
+.dataTables_filter input,
+.dataTables_info,
+.dataTables_paginate {
+    font-size: 14px;
+}
+
+.dataTables_paginate .pagination {
+    justify-content: center;
+}
+
+.dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #f0f0f0;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.dataTables_scrollHead,
+.dataTables_scrollBody {
+    overflow-x: auto;
+}
+
+/* Responsive DataTable */
+@media screen and (max-width: 600px) {
+
+    .dataTable th,
+    .dataTable td {
+        font-size: 12px;
+    }
+}

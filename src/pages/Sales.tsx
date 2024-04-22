@@ -1,6 +1,10 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent, useRef } from 'react';
 import axios from 'axios';
-
+import $ from 'jquery';
+import 'datatables.net-bs4';
+import 'datatables.net-bs4/css/dataTables.bootstrap4.min.css'; // Import DataTables CSS
+import "../css/DataTables.css"
+import '../css/sales.css'
 interface Product {
     id: number;
     name: string;
@@ -18,6 +22,7 @@ const Sales: React.FC = () => {
     const [productId, setProductId] = useState<number>(0);
     const [quantity, setQuantity] = useState<number>(0);
     const [userProducts, setUserProducts] = useState<Product[]>([]);
+    const tableRef = useRef<HTMLTableElement>(null);
 
     useEffect(() => {
         const fetchSales = async () => {
@@ -108,6 +113,12 @@ const Sales: React.FC = () => {
         }
     };
 
+    useEffect(() => {
+        if (tableRef.current) {
+            $(tableRef.current).DataTable();
+        }
+    }, [sales]);
+
     return (
         <div>
             <h2>Sales</h2>
@@ -126,10 +137,10 @@ const Sales: React.FC = () => {
                     <label>Quantity:</label>
                     <input type="number" value={quantity} onChange={handleQuantityChange} />
                 </div>
-                <button type="submit">Add Sale</button>
+                <button type="submit">Make Sale</button>
             </form>
 
-            <table>
+            <table ref={tableRef}>
                 <thead>
                     <tr>
                         <th>id</th>
@@ -149,7 +160,6 @@ const Sales: React.FC = () => {
                     ))}
                 </tbody>
             </table>
-
         </div>
     );
 }

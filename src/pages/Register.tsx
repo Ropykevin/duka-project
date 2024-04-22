@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
-
+import '../css/register.css'
+import '../css/Product.css'
 const Register: React.FC = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -26,10 +27,10 @@ const Register: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className=' products-container'>
             <h2>Register</h2>
             <form onSubmit={(e) => { e.preventDefault(); handleRegister(); }}>
-                <div>
+                <div >
                     <label htmlFor="username">Username:</label>
                     <input
                         type="text"

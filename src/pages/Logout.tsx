@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner"; // Import the Spinner component
 
-const Logout = () => {
+const Logout: React.FC = () => {
+    const [loading, setLoading] = useState(true); // State to manage loading
     const navigate = useNavigate();
 
-    const handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        // Clearing the local storage
+    const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('isLoggedIn');
-
-        // Navigating to the login page after clearing the local storage
-        navigate("/login");
+        navigate('/login', { replace: true }); 
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            handleLogout();
+            setLoading(false); 
+        }, 1500); 
+    }, []);
+
+    if (loading) {
+        return <Spinner />;
+    }
+
     return (
         <div>
-            <h1>Logging Out...</h1>
-            <button onClick={handleLogout}>Logout</button>
+            <p>Logging out...</p>
         </div>
     );
-};
+}
 
 export default Logout;

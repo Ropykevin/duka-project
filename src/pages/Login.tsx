@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+import '../css/login.css'
 const Login: React.FC = () => {
     const [formData, setFormData] = useState({ username: '', password: '' });
     const [error, setError] = useState('');
@@ -29,7 +30,7 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className='products-container'>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
                 <div>
