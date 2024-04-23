@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import Header from '../components/header'
+import Sidebar from "./sidebar";
 import '../css/layout.css'
 
 function Layout() {
@@ -15,7 +17,16 @@ function Layout() {
     };
 
     return (
+        
         <div className="Layout">
+
+            <Header></Header>
+            <Sidebar></Sidebar>
+
+
+
+{/*             
+            
             <header className="layout-header">
                 <Navbar bg="dark" variant="dark">
                     <Container>
@@ -33,7 +44,7 @@ function Layout() {
                         </Nav>
                     </Container>
                 </Navbar>
-            </header>
+            </header> */}
             <main>
                 <Outlet />
             </main>

@@ -9,6 +9,7 @@ import Sales from './pages/Sales';
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Domain from './pages/dd';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/sales" element={<Sales />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dd" element={<Domain />} />
+
             <Route path="/logout" element={<Logout />} />
 
 
